@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "declaration": true,
+    "noImplicitAny": false,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noLib": false,
+    "jsx": "react",
+    "outDir": "./__tmp__",
+    "rootDir": "."
+  },
+  "filesGlob": [
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "custom_typings/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "!node_modules/react-modular-map",
+    "static",
+    "typings/browser.d.ts",
+    "typings/browser",
+    "__tests__",
+    "__tmp__",
+    "lib",
+    "umd"
+  ],
+  "files": [],
+  "atom": {
+    "rewriteTsconfig": true
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "name": "react-daum-map",
+  "version": false,
+  "dependencies": {},
+  "ambientDependencies": {
+    "core-decorators": "registry:dt/core-decorators#0.10.0+20160316155526"
+  }
+}
