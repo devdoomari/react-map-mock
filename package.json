@@ -57,7 +57,7 @@
     "jest-cli": "^0.10.0",
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.28.1",
-    "react-modular-map": "git+ssh://git@github.com/devdoomari/react-map.git#dist_25",
+    "react-modular-map": "git+ssh://git@github.com/devdoomari/react-map.git#dist_29",
     "typings": "^0.8.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",

@@ -1,6 +1,3 @@
-interface PostScribeStatic {
-  (elem?: any, html?: any, options?: any): any;
-};
-declare module 'postscribe' {
-  export = postScribeStatic;
+declare module "postscribe" {
+    export default function postscribe(elem?: any, html?: any, options?: any): void;
 }
