@@ -30,8 +30,7 @@
     "lib",
     "umd"
   ],
-  "files": [],
   "atom": {
-    "rewriteTsconfig": true
+    "rewriteTsconfig": false
   }
 }
