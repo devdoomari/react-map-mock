@@ -46,6 +46,7 @@ class MapViewDemo extends Component {
                 new Behaviors.ClickToCenter(),
                 new Behaviors.DragToMoveAround(),
               ]}
+              lat={33.450701} lng={126.570667}
             />
           </Col>
         </Row>
