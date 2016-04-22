@@ -11,11 +11,12 @@ import _ from 'lodash';
 
 import {
   DaumMapProvider
-} from '../__tmp__/';
+} from '../__tmp__/src';
+
 import {
   Map,
   Behaviors,
-} from '../__tmp__/src';
+} from 'react-modular-map';
 import {
   APIKEY,
 } from './config';
@@ -23,7 +24,9 @@ import {
 class MapViewDemo extends Component {
   constructor(props) {
     super(props);
-    this.syncMockMapProvider = new SyncMockMapProvider();
+    this.daumMapProvider = new DaumMapProvider({
+      APIKey: APIKEY,
+    });
     this.state = {
     };
   }
@@ -35,7 +38,7 @@ class MapViewDemo extends Component {
           <Col md={1} sm={1} />
           <Col md={8} sm={8} >
             <Map
-              mapProvider={this.syncMockMapProvider}
+              mapProvider={this.daumMapProvider}
               style={{
                 width: 600, height: 500,
               }}

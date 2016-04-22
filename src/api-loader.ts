@@ -1,5 +1,5 @@
 import * as Q from 'q';
-import postscribe from 'postscribe';
+const postscribe = require('postscribe');
 
 const deferred = Q.defer();
 const promise = deferred.promise;
@@ -12,6 +12,7 @@ export function loadAPI(APIKey: String) {
         deferred.resolve(window['daum']['maps']);
       },
       error: (e) => {
+        debugger;
         deferred.reject(e);
       },
     });

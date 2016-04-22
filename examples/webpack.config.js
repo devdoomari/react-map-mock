@@ -14,6 +14,7 @@ module.exports = {
  */
   entry: {
     mapView: [
+      'babel-polyfill',
       './examples/mapview',
     ],
   },
@@ -45,6 +46,10 @@ module.exports = {
   module: {
     preLoaders: [],
     loaders: [{
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: /node_modules/,
+    }, {
       test: /\.es6$/,
       loader: 'babel',
       exclude: /node_modules/,
