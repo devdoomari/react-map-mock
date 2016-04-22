@@ -1,25 +1,42 @@
 import {
+  autobind,
+  override,
+} from 'core-decorators';
+
+import {
   BaseMapProvider,
   Interfaces,
 } from 'react-modular-map';
 
 import {
-  autobind,
-  override,
-} from 'core-decorators';
+  loadAPI, getDaumMapApi,
+} from './api-loader';
 
-export interface IOptionArgs {
-  apiKey: String;
+export interface IConstructorOpts {
+  APIKey: String;
+}
+export interface IInitOpts {
+  center: Interfaces.ILatLng;
 }
 
 export class DaumMapProvider extends BaseMapProvider {
-  constructor(options: IOptionArgs) {
+  map: any;
+  constructor(options: IConstructorArgs) {
     super(options);
+    this.apiLoadPromise = loadAPI(options.APIKey);
   }
   @override
   @autobind
-  initialize(domNode: HTMLElement, options: any) {
-
+  async initialize(domNode: HTMLElement, options: IInitOpts) {
+    // options 에서 initial position 받기.
+    const mapApi = await this.apiLoadPromise;
+    const center = options.center;
+    const daumCenter = new mapApi.LatLng(center.lat, center.lng);
+    const mapOptions = {
+      ...options,
+      center: daumCepter,
+    };
+    this.map = new mapApi.Map(domNode, mapOptions);
   }
   @override
   @autobind

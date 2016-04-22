@@ -13,6 +13,8 @@
     "rootDir": "."
   },
   "filesGlob": [
+    "src/*.ts",
+    "src/*.tsx",
     "src/**/*.ts",
     "src/**/*.tsx",
     "custom_typings/**/*.d.ts"
