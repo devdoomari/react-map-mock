@@ -7,11 +7,12 @@
     "definition": "index.d.ts"
   },
   "scripts": {
-    "postinstall": "node_modules/.bin/babel src --out-dir dist",
     "build": "node_modules/.bin/webpack --config examples/webpack_config/build.js --bail -p",
     "clean": "rm -r examples/dist dist",
     "watch_examples": "node_modules/.bin/webpack --watch --config examples/webpack_config/build.js --bail -p",
-    "dev": "node_modules/.bin/webpack-dev-server --config examples/webpack_config/config.js --history-api-fallback"
+    "dev": "node_modules/.bin/webpack-dev-server --config examples/webpack_config/config.js --history-api-fallback",
+    "_serve_examples": "$(npm bin)/webpack-dev-server --config examples/webpack.config.js --port 8081",
+    "_watch_ts_for_examples": "$(npm bin)/tsc --watch"
   },
   "repository": {
     "type": "git",
@@ -58,8 +59,8 @@
     "react-bootstrap": "^0.28.1",
     "react-modular-map": "git+ssh://git@github.com/devdoomari/react-map.git#dist_25",
     "typings": "^0.8.1",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1",
     "webpack-hot-middleware": "^2.6.0"
   },
   "jest": {

@@ -15,9 +15,6 @@ import {
 export interface IConstructorOpts {
   APIKey: String;
 }
-export interface IInitOpts {
-  center: Interfaces.ILatLng;
-}
 
 export class DaumMapProvider extends BaseMapProvider {
   map: any;
@@ -27,7 +24,7 @@ export class DaumMapProvider extends BaseMapProvider {
   }
   @override
   @autobind
-  async initialize(domNode: HTMLElement, options: IInitOpts) {
+  async initialize(domNode: HTMLElement, options) {
     // options 에서 initial position 받기.
     const mapApi = await this.apiLoadPromise;
     const center = options.center;
@@ -41,12 +38,13 @@ export class DaumMapProvider extends BaseMapProvider {
   @override
   @autobind
   setDimensions(dimension: Interfaces.IDimension) {
-
+    this.map.relayout();
   }
   @override
   @autobind
   __setCenter(center: Interfaces.ILatLng) {
-
+    const daumCenter = new mapApi.LatLng(center.lat, center.lng);
+    this.map.setCenter(daumCenter);
   }
   @override
   @autobind
@@ -57,7 +55,6 @@ export class DaumMapProvider extends BaseMapProvider {
   @override
   @autobind
   onBoundsChanged(handler): any {
-
   }
 
   @override
