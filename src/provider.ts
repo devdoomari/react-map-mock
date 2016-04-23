@@ -18,6 +18,7 @@ export interface IConstructorOpts {
   APIKey: String;
 }
 
+@autobind
 export default class DaumMapProvider extends BaseMapProvider {
   map: any;
   apiLoadPromise: any;
@@ -39,7 +40,6 @@ export default class DaumMapProvider extends BaseMapProvider {
   }
 
   setDimensions(dimension: Interfaces.IDimension) {
-    debugger;
     this.map.relayout();
   }
 
@@ -50,7 +50,6 @@ export default class DaumMapProvider extends BaseMapProvider {
   }
 
   __setZoom(zoomLevel: Number) {
-    const mapApi = getDaumMapAPI();
     this.map.setLevel(zoomLevel);
   }
 
@@ -70,8 +69,7 @@ export default class DaumMapProvider extends BaseMapProvider {
 
 
   getCenter(): Interfaces.ILatLng {
-    const mapApi = getDaumMapAPI();
-    const daumCenter = mapApi.getCenter();
+    const daumCenter = this.map.getCenter();
     return {
       lat: daumCenter.getLat(),
       lng: daumCenter.getLng(),
@@ -80,16 +78,16 @@ export default class DaumMapProvider extends BaseMapProvider {
 
 
   getZoomLevel(): Number {
-    const mapApi = getDaumMapAPI();
-    return mapApi.getLevel();
+    return this.map.getLevel();
   }
 
 
   pointToLatLng(point: Interfaces.IPoint): Interfaces.ILatLng {
+    debugger;
     const mapApi = getDaumMapAPI();
     const projection = this.map.getProjection();
     const daumPoint = new mapApi.Point(point.left, point.top);
-    const daumLatLng = projection.coordsFromPoint(daumPoint);
+    const daumLatLng = projection.coordsFromContainerPoint(daumPoint);
     return {
       lat: daumLatLng.getLat(),
       lng: daumLatLng.getLng(),
@@ -101,7 +99,7 @@ export default class DaumMapProvider extends BaseMapProvider {
     const mapApi = getDaumMapAPI();
     const projection = this.map.getProjection();
     const daumLatLng = new mapApi.LatLng(latlng.lat, latlng.lng);
-    const daumPoint = projection.pointFromCoords(daumLatLng);
+    const daumPoint = projection.containerPointFromCoords(daumLatLng);
     return {
       left: daumPoint.x,
       top: daumPoint.y,
