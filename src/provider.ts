@@ -53,20 +53,20 @@ export default class DaumMapProvider extends BaseMapProvider {
     this.map.setLevel(zoomLevel);
   }
 
-  onBoundsChanged(handler): any {
-    const mapApi = getDaumMapApi();
+  __onBoundsChanged(handler): any {
+    const mapApi = getDaumMapAPI();
     mapApi.event.addListener(this.map, 'bounds_changed', handler);
   }
 
-  onZoomChanged(handler): any {
-    const mapApi = getDaumMapApi();
+  __onZoomChanged(handler): any {
+    const mapApi = getDaumMapAPI();
     mapApi.event.addListener(this.map, 'zoom_changed', handler);
   }
 
 
-  onCenterChanged(handler): any {
-    const mapApi = getDaumMapApi();
-    mapApi.event.addListener(this.mapApi, 'center_changed', handler);
+  __onCenterChanged(handler): any {
+    const mapApi = getDaumMapAPI();
+    mapApi.event.addListener(this.map, 'center_changed', handler);
   }
 
 

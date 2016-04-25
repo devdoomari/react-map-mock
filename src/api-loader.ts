@@ -12,7 +12,6 @@ export function loadAPI(APIKey: String) {
         deferred.resolve(window['daum']['maps']);
       },
       error: (e) => {
-        debugger;
         deferred.reject(e);
       },
     });
