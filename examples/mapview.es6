@@ -21,6 +21,7 @@ import {
   APIKEY,
 } from './config';
 import Marker from './marker';
+import GeoJson from './geojson';
 
 
 class MapViewDemo extends Component {
@@ -31,6 +32,8 @@ class MapViewDemo extends Component {
     });
     this.state = {
     };
+    const asd = Behaviors;
+    debugger;
   }
   render() {
     return (
@@ -47,11 +50,21 @@ class MapViewDemo extends Component {
               behaviors={[
                 new Behaviors.ClickToCenter(),
                 new Behaviors.DragToMoveAround(),
+                new Behaviors.ScrollToZoomIn(),
               ]}
               initialCenter={{ lat:33.450701, lng:126.570667 }}
             >
               <Marker
                 position={{ lat: 33.450701, lng: 126.570667 }}
+              />
+              <GeoJson
+                positions={[
+                  { lat: 33.450701, lng: 126.570667 },
+                  { lat: 33.4509, lng: 126.570667 },
+                  { lat: 33.4509, lng: 126.5703 },
+                  { lat: 33.4509, lng: 126.57 },
+                  { lat: 33.450701, lng: 126.5703 },
+                ]}
               />
             </Map>
           </Col>

@@ -58,7 +58,7 @@ export default class DaumMapProvider extends BaseMapProvider {
     mapApi.event.addListener(this.map, 'bounds_changed', handler);
   }
 
-  __onZoomChanged(handler): any {
+  __onZoomLevelChanged(handler): any {
     const mapApi = getDaumMapAPI();
     mapApi.event.addListener(this.map, 'zoom_changed', handler);
   }
