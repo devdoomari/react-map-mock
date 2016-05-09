@@ -1,5 +1,5 @@
 {
-  "name": "react-daum-map",
+  "name": "react-map-mock",
   "version": "0.0.1",
   "description": "React wrapper for daum map",
   "main": "lib/index.js",
@@ -57,7 +57,7 @@
     "postscribe": "^2.0.1",
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.28.1",
-    "react-modular-map": "git+ssh://git@github.com/devdoomari/react-map.git#dist_57",
+    "react-modular-map": "git+ssh://git@github.com/devdoomari/react-map.git#dist_59",
     "typings": "^0.8.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",
