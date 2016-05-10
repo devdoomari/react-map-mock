@@ -4,6 +4,7 @@
   "dependencies": {},
   "ambientDependencies": {
     "core-decorators": "registry:dt/core-decorators#0.10.0+20160316155526",
+    "eventemitter2": "registry:dt/eventemitter2#0.14.4+20160316155526",
     "lodash": "registry:dt/lodash#3.10.0+20160330154726",
     "node": "registry:dt/node#4.0.0+20160412142033",
     "q": "registry:dt/q#0.0.0+20160417152954",

@@ -1,18 +1,18 @@
 {
   "name": "react-map-mock",
   "version": "0.0.1",
-  "description": "React wrapper for daum map",
+  "description": "Mock map provider for react-modular-map",
   "main": "lib/index.js",
-  "typescript": {
-    "definition": "index.d.ts"
-  },
+  "typings": "lib/index",
   "scripts": {
-    "build": "node_modules/.bin/webpack --config examples/webpack_config/build.js --bail -p",
-    "clean": "rm -r examples/dist dist",
-    "watch_examples": "node_modules/.bin/webpack --watch --config examples/webpack_config/build.js --bail -p",
-    "dev": "node_modules/.bin/webpack-dev-server --config examples/webpack_config/config.js --history-api-fallback",
-    "_serve_examples": "$(npm bin)/webpack-dev-server --config examples/webpack.config.js --port 8081",
-    "_watch_ts_for_examples": "$(npm bin)/tsc --watch"
+    "clean": "rm -rf examples/dist dist __tmp__ build lib lib_es6",
+    "serve_examples": "$(npm bin)/webpack-dev-server --config examples/webpack.config.js --port 8081",
+    "watch_ts": "$(npm bin)/tsc --watch",
+    "build_ts_lib_es6": "$(npm bin)/typings install && $(npm bin)/tsc",
+    "build_es6_to_es5": "$(npm bin)/babel lib_es6 -d lib",
+    "build_copy_dts_files": "$(npm bin)/copyfiles -u 1 'lib_es6/*.d.ts' lib && $(npm bin)/copyfiles -u 1 'lib_es6/**/*.d.ts' lib",
+    "lib_es6_to_lib": "npm run build_es6_to_es5 && npm run build_copy_dts_files",
+    "build": "npm run build_ts_lib_es6 && npm run lib_es6_to_lib"
   },
   "repository": {
     "type": "git",
@@ -37,6 +37,7 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "core-decorators": "^0.12.2",
+    "eventemitter2": "^1.0.3",
     "keymirror": "^0.1.1",
     "lodash": "^4.9.0",
     "node-uuid": "^1.4.7",
@@ -49,6 +50,7 @@
     "babel-jest": "^10.0.1",
     "babel-polyfill": "^6.7.4",
     "codemirror": "^5.9.0",
+    "copyfiles": "^0.2.1",
     "eslint-plugin-jasmine": "^1.8.1",
     "extract-text-webpack-plugin": "^0.9.1",
     "file-loader": "^0.8.5",
@@ -58,6 +60,7 @@
     "raw-loader": "^0.5.1",
     "react-bootstrap": "^0.28.1",
     "react-modular-map": "git+ssh://git@github.com/devdoomari/react-map.git#dist_59",
+    "ts-loader": "^0.8.2",
     "typings": "^0.8.1",
     "webpack": "^1.13.0",
     "webpack-dev-server": "^1.14.1",

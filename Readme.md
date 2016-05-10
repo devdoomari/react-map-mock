@@ -1,5 +1,6 @@
-# React Daum Map
+# Mock-map provider for react-modular-map
  - created for MeshKorea's angularjs -> react transition.
+ - For react-modular-map, see https://github.com/devdoomari/react-modular-map
 
 # Running demo:
  1. Install node 4.x:

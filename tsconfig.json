@@ -9,8 +9,8 @@
     "experimentalDecorators": true,
     "noLib": false,
     "jsx": "react",
-    "outDir": "./__tmp__",
-    "rootDir": "."
+    "outDir": "./lib_es6",
+    "rootDir": "./src"
   },
   "filesGlob": [
     "src/*.ts",
@@ -28,7 +28,9 @@
     "__tests__",
     "__tmp__",
     "lib",
-    "umd"
+    "lib_es6",
+    "umd",
+    "build"
   ],
   "atom": {
     "rewriteTsconfig": false
